@@ -1,0 +1,32 @@
+package ParallelMatrix;
+
+import static org.junit.Assert.*;
+import org.junit.*;
+
+
+public class MatrixTest {
+
+  Matrix myMatrix;
+
+  @BeforeClass
+  public static void setUp() {
+      System.out.println("Running setup.");
+      Matrix myMatrix = new Matrix(4,4,false,10); 
+  }
+
+
+  @Test
+  public void testGetCol() {
+  	  System.out.println("Running get columns.");
+  	  int[] temp = myMatrix.getColumn(2);
+  	  for(int i=0; i<temp.length; i++) {
+  	      System.out.println(temp[i]);
+  	  }
+  }
+
+  @Test
+  public void testGetRows() {
+  	  System.out.println("Running get rows.");
+
+  }
+}
