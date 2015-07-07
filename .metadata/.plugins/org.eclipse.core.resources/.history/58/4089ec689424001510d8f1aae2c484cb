@@ -20,7 +20,7 @@ public class Matrix {
 	}
 	
 	public boolean setRow(int[] inputRow, int rowID) {
-		if(inputRow.length == matrix[0].length && rowID < matrix.length) {
+		if(inputRow.length != matrix[0].length && rowID < matrix.length) {
 		    matrix[rowID] = inputRow;
 		    return true;
 		} else {
@@ -58,11 +58,6 @@ public class Matrix {
 	
 	public int getNumColumns() {
 		return matrix[0].length;
-	}
-	
-	//To do
-	public boolean equals(Matrix compareM){
-		return true;
 	}
 	
 	public static boolean add(Matrix matrixA, Matrix matrixB, Matrix matrixResult) {

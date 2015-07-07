@@ -33,7 +33,7 @@ public class MatrixTest {
 	}
 
 	@Test
-	public void testGetRow() {
+	public void testGetRows() {
 		int[] rowSample = {0,2,4,6};
 		int[] temp = testMatrix.getRow(2);
 		for(int i=0; i<temp.length; i++) {
@@ -86,18 +86,6 @@ public class MatrixTest {
 	@Test
 	public void testGetElem() {
 		assertEquals(testMatrix.getElem(2, 2),4);
-	}
-	
-	@Test
-	public void testGetNumRows() {
-		Matrix newMat = new Matrix(7,3,true,0);
-		assertEquals(newMat.getNumRows(),7);
-	}
-	
-	@Test
-	public void testGetNumColumns() {
-		Matrix newMat = new Matrix(7,3,true,0);
-		assertEquals(newMat.getNumColumns(),3);
 	}
 
 }

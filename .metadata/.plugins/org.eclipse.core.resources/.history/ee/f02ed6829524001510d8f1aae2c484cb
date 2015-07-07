@@ -20,6 +20,7 @@ public class Matrix {
 	}
 	
 	public boolean setRow(int[] inputRow, int rowID) {
+		System.out.println("inputRow length: " + inputRow.length + " Matrix row length: " + matrix.length + " row id: " + rowID);
 		if(inputRow.length == matrix[0].length && rowID < matrix.length) {
 		    matrix[rowID] = inputRow;
 		    return true;

@@ -1,5 +1,10 @@
 *.class
-
+*.xml
+*.png
+*.zip
+/metadata
+*.snap
+*.index
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
