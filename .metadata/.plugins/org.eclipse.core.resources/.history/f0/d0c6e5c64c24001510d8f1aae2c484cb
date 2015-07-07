@@ -27,25 +27,9 @@ public class Matrix {
 			return false;
 		}
 	}
-	
-	public int getElem(int i, int j) {
-		return matrix[i][j];
-	}
 
-	public boolean setElem(int i, int j, int value) {
-		if(i < getNumRows() && j < getNumColumns()) {
-			matrix[i][j] = value;
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	public int[] getRow(int row) {
-		if(row < getNumRows()) 
-		    return matrix[row];
-		else
-			return new int[0]; // need to fix this
+		return matrix[row];
 	}
 
 	public int[] getColumn(int col) {
@@ -60,17 +44,14 @@ public class Matrix {
 		return matrix[0].length;
 	}
 	
-	public static boolean add(Matrix matrixA, Matrix matrixB, Matrix matrixResult) {
+	public boolean add(Matrix matrixA, Matrix matrixB, Matrix MatrixResult) {
 		if((matrixA.getNumRows() != matrixB.getNumRows()) || 
 		   (matrixA.getNumColumns() != matrixB.getNumColumns())) {
 			return false;
 		}
-		for(int i=0; i<matrixA.getNumRows(); i++) {
-			for(int j=0; j<matrixA.getNumColumns(); j++) {
-				matrixResult.setElem(i,j, (matrixA.getElem(i,j)+matrixB.getElem(i,j)));
-			} 
+		for(int i=0; i< matrixA.getNumRows(); i++) {
+			
 		}
-		return true;
 	}
 	
 	public String toString() {
@@ -86,13 +67,9 @@ public class Matrix {
 	}
 	
 	public static void main(String[] args) {
-		Matrix sampleMatrix = new Matrix(2,4,false,10);
-		Matrix sampleMatrix2 = new Matrix(2,3,false,5);
-		Matrix resultMatrix = new Matrix(2,4,true,0);
+		Matrix sampleMatrix = new Matrix(4,4,false,10);
 		sampleMatrix.toString();
-		sampleMatrix2.toString();
-		Matrix.add(sampleMatrix, sampleMatrix2, resultMatrix);
-		resultMatrix.toString();
+		sampleMatrix.getRow(2);
 		System.out.println("Created matrix.");
 	}
 }

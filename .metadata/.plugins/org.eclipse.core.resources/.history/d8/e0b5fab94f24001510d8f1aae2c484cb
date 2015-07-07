@@ -87,7 +87,7 @@ public class Matrix {
 	
 	public static void main(String[] args) {
 		Matrix sampleMatrix = new Matrix(2,4,false,10);
-		Matrix sampleMatrix2 = new Matrix(2,3,false,5);
+		Matrix sampleMatrix2 = new Matrix(2,4,false,5);
 		Matrix resultMatrix = new Matrix(2,4,true,0);
 		sampleMatrix.toString();
 		sampleMatrix2.toString();

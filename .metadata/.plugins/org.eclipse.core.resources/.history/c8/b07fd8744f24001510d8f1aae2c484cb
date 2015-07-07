@@ -60,7 +60,7 @@ public class Matrix {
 		return matrix[0].length;
 	}
 	
-	public static boolean add(Matrix matrixA, Matrix matrixB, Matrix matrixResult) {
+	public boolean add(Matrix matrixA, Matrix matrixB, Matrix matrixResult) {
 		if((matrixA.getNumRows() != matrixB.getNumRows()) || 
 		   (matrixA.getNumColumns() != matrixB.getNumColumns())) {
 			return false;
@@ -87,12 +87,11 @@ public class Matrix {
 	
 	public static void main(String[] args) {
 		Matrix sampleMatrix = new Matrix(2,4,false,10);
-		Matrix sampleMatrix2 = new Matrix(2,3,false,5);
-		Matrix resultMatrix = new Matrix(2,4,true,0);
 		sampleMatrix.toString();
-		sampleMatrix2.toString();
-		Matrix.add(sampleMatrix, sampleMatrix2, resultMatrix);
-		resultMatrix.toString();
+		int [] temp = sampleMatrix.getRow(1);
+		for (int i=0; i< temp.length; i++) {
+			System.out.println(temp[i]);
+		}
 		System.out.println("Created matrix.");
 	}
 }
