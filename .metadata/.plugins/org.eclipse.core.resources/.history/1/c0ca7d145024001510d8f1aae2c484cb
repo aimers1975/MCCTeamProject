@@ -62,8 +62,7 @@ public class Matrix {
 	
 	public static boolean add(Matrix matrixA, Matrix matrixB, Matrix matrixResult) {
 		if((matrixA.getNumRows() != matrixB.getNumRows()) || 
-		   (matrixA.getNumColumns() != matrixB.getNumColumns()) ||
-		   (matrixResult.getNumColumns() != matrixResult.getNumColumns()) ) {
+		   (matrixA.getNumColumns() != matrixB.getNumColumns())) {
 			return false;
 		}
 		for(int i=0; i<matrixA.getNumRows(); i++) {
