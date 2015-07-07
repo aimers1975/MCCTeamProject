@@ -88,10 +88,9 @@ public class Matrix {
 				     (matrixResult.getNumColumns() != matrixA.getNumRows()))) {
 					return false;
 		} else {
-			
+			int value = 0;
 			for(int i=0; i<matrixA.getNumRows(); i++) {
 				for(int j=0; j<matrixB.getNumColumns(); j++) {
-					int value = 0;
 					for(int inner=0; inner < matrixA.getNumColumns();inner++) {
 						value = value + (matrixA.getElem(i, inner) * matrixB.getElem(inner, j));
 					}

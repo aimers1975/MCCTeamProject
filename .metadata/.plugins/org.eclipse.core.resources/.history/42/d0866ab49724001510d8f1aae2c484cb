@@ -57,14 +57,6 @@ public class MatrixTest {
 	}
 	
 	@Test
-	public void testMultiply() {
-		Matrix matrixResult = new Matrix(4,4,true,0);
-		Matrix.multiply(testMatrix, testMatrix2, matrixResult);
-		String expected = "0 0 0 0 \n0 14 13 17 \n0 28 26 34 \n0 42 39 51 \n";
-		assertEquals(matrixResult.toString(),expected);
-	}
-	
-	@Test
 	public void testToString() {
 		String expected = "0 0 0 0 \n0 1 2 3 \n0 2 4 6 \n0 3 6 9 \n";
 		assertEquals(testMatrix.toString(), expected);

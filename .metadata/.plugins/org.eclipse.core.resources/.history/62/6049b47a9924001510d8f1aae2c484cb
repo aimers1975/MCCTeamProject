@@ -68,8 +68,7 @@ public class Matrix {
 	public static boolean add(Matrix matrixA, Matrix matrixB, Matrix matrixResult) {
 		if((matrixA.getNumRows() != matrixB.getNumRows()) || 
 		   (matrixA.getNumColumns() != matrixB.getNumColumns()) ||
-		   (matrixResult.getNumColumns() != matrixA.getNumColumns()) ||
-		   (matrixResult.getNumRows() != matrixA.getNumRows())) {
+		   (matrixResult.getNumColumns() != matrixResult.getNumColumns()) ) {
 			return false;
 		}
 		for(int i=0; i<matrixA.getNumRows(); i++) {
@@ -78,28 +77,6 @@ public class Matrix {
 			} 
 		}
 		return true;
-	}
-	
-
-	
-	public static boolean multiply(Matrix matrixA, Matrix matrixB, Matrix matrixResult) {
-		if((matrixA.getNumRows() != matrixB.getNumColumns()) || 
-				   ((matrixResult.getNumRows() != matrixA.getNumRows())&&
-				     (matrixResult.getNumColumns() != matrixA.getNumRows()))) {
-					return false;
-		} else {
-			
-			for(int i=0; i<matrixA.getNumRows(); i++) {
-				for(int j=0; j<matrixB.getNumColumns(); j++) {
-					int value = 0;
-					for(int inner=0; inner < matrixA.getNumColumns();inner++) {
-						value = value + (matrixA.getElem(i, inner) * matrixB.getElem(inner, j));
-					}
-					matrixResult.setElem(i, j, value);
-				}
-			}
-			return true;
-		}
 	}
 	
 	public String toString() {
