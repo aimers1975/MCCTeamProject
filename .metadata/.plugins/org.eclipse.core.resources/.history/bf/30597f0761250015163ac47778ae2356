@@ -111,7 +111,6 @@ public class Matrix {
 					double value = 0;
 					for(int inner=0; inner < matrixB.getNumRows();inner++) {
 						value = value + (matrixA.getElem(i, inner) * matrixB.getElem(inner, j));
-						System.out.println("Calculating value:" + matrixA.getElem(i, inner) + " * " + matrixB.getElem(inner, j));
 					}
 					matrixResult.setElem(i, j, value);
 				}

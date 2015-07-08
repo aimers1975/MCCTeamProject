@@ -97,21 +97,15 @@ public class Matrix {
 	public static boolean multiply(Matrix matrixA, Matrix matrixB, Matrix matrixResult) {
 		if((matrixA.getNumRows() != matrixB.getNumColumns()) || 
 				   ((matrixResult.getNumRows() != matrixA.getNumRows())&&
-				     (matrixResult.getNumColumns() != matrixB.getNumColumns()))) {
-			        System.out.println("MatrixA get rows" + matrixA.getNumRows());
-			        System.out.println("MatrixB get cols" + matrixB.getNumColumns());
-			        System.out.println("MatrixR get rows" + matrixResult.getNumRows());
-			        System.out.println("MatrixR get cols" + matrixResult.getNumColumns());
-			        System.out.println("MatrixA get cols" + matrixA.getNumColumns());
+				     (matrixResult.getNumColumns() != matrixA.getNumRows()))) {
 					return false;
 		} else {
 			
 			for(int i=0; i<matrixA.getNumRows(); i++) {
 				for(int j=0; j<matrixB.getNumColumns(); j++) {
 					double value = 0;
-					for(int inner=0; inner < matrixB.getNumRows();inner++) {
+					for(int inner=0; inner < matrixA.getNumColumns();inner++) {
 						value = value + (matrixA.getElem(i, inner) * matrixB.getElem(inner, j));
-						System.out.println("Calculating value:" + matrixA.getElem(i, inner) + " * " + matrixB.getElem(inner, j));
 					}
 					matrixResult.setElem(i, j, value);
 				}
@@ -165,7 +159,7 @@ public class Matrix {
 			for(int j=0; j<getNumColumns(); j++) {
 				subMat = createSubMatrix(this,i,j);
 				try {
-				   cofactorResult.setElem(i, j, (flipOdd(i+j)*determinant(subMat)));
+				   cofactorResult.setElem(i, j, determinant(subMat));
 				} catch(Exception e) {
 					System.out.println(e.toString());
 				}
@@ -173,7 +167,7 @@ public class Matrix {
 		}
         return cofactorResult;
 	}
-
+	   //Todo
 	public Matrix invert() {
 		Matrix inverse = new Matrix(getNumRows(), getNumColumns(), true, 0);
 		double det = 0;
@@ -183,11 +177,7 @@ public class Matrix {
 			System.out.println(e.toString());
 		}
 		det = 1/det;
-		Matrix adjointR = new Matrix(getNumRows(), getNumColumns(), true, 0);
-		adjointR = adjoint(this);
-		System.out.println("Adding a scalar:" + det + "\n to adjoint:\n" + adjointR.toString()
-				+ "The cofactor was: \n" + (this.cofactor()).toString());
-		inverse = scalarMultiply(adjointR,det);
+		inverse = scalarMultiply(this,det);
 		return inverse;
 	}
 	
@@ -203,12 +193,6 @@ public class Matrix {
 	
 	public static boolean solveLinearSystem(Matrix A, Matrix X, Matrix B) {
 		// AX=B, so A^-1B = X...Take the inverse of A and solve for X
-		Matrix invA = A.invert();
-		if(multiply(A,B,X)) {
-			System.out.println("The matrix result is: " + X.toString());
-		} else {
-			System.out.println("Problem solving linear equation");
-		}
 		return true;
 	}
 	
@@ -239,25 +223,12 @@ public class Matrix {
 		Matrix sampleMatrix2 = new Matrix(2,3,false,5);
 		Matrix sampleMatrix3 = new Matrix(3,3,false,5);
 		Matrix sampleMatrix4 = new Matrix(3,3,true,0);
-		double[] arow = {1,1,1};
+		double[] arow = {1,2,3};
 		sampleMatrix4.setRow(arow, 0);
-		Matrix linearA = new Matrix(3,3,true,0);
-		linearA.setRow(arow, 0);
-		double[] brow = {0,2,5};
-		linearA.setRow(brow, 1);
-		sampleMatrix4.setRow(brow, 1);
-		double[] crow = {2,5,-1};
-		linearA.setRow(crow, 2);
-		Matrix linearB = new Matrix(1,3,true,0);
-		linearB.setElem(0, 0, 6);
-		linearB.setElem(0, 1, -4);
-		linearB.setElem(0, 2, 27);
-		Matrix linResult = new Matrix(3,1,true,0);
-		System.out.println("solving A: \n" + linearA.toString() + "and B: \n" + linearB.toString()
-				+ "to Matrix result: \n" + linResult.toString());
-		solveLinearSystem(linearA,linResult,linearB);
-		System.out.println("The linear result is:\n" + linResult.toString());
-		sampleMatrix4.setRow(crow, 2);
+		arow = {0,4,5};
+		sampleMatrix4.setRow(arow, 1);
+		arow = {1,0,6};
+		sampleMatrix4.setRow(arow, 2);
 		Matrix resultMatrix = new Matrix(2,4,true,0);
 		sampleMatrix.toString();
 		sampleMatrix2.toString();
