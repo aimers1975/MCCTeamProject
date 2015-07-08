@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="MatrixTest" project="ParallelMatrix" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="ParallelMatrix.MatrixTest" time="0.0">
-    <testcase name="testGetRows" classname="ParallelMatrix.MatrixTest" time="0.0"/>
-    <testcase name="testGetColumn" classname="ParallelMatrix.MatrixTest" time="0.0"/>
-  </testsuite>
-</testrun>
