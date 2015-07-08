@@ -109,18 +109,8 @@ public class MatrixTest {
 		assert(testMatrix.isSquare());
 	}
 	
-	@Test 
-	public void testIsNotSquare() {
+	@Test void testIsNotSquare() {
 		assert(!testMatrix3.isSquare());
-	}
-	
-	@Test
-	public void testFlipOddEven() {
-		assert(Matrix.flipOdd(2) == 1);
-	}
-	
-	public void testFlipOddOdd() {
-		assert(Matrix.flipOdd(3) == -1);
 	}
 	
 	@Test

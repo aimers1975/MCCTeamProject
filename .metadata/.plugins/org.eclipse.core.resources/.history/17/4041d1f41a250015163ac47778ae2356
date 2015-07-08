@@ -101,7 +101,7 @@ public class Matrix {
 			return true;
 		}
 	}
-	   //To do - this is copied from an example, we probably want to do our own
+	   //To do
 	public static double determinant(Matrix A) throws Exception {
 		//public static double determinant(Matrix matrix) throws NoSquareException {
         if (!A.isSquare()) {

@@ -101,7 +101,7 @@ public class Matrix {
 			return true;
 		}
 	}
-	   //To do - this is copied from an example, we probably want to do our own
+	   //To do
 	public static double determinant(Matrix A) throws Exception {
 		//public static double determinant(Matrix matrix) throws NoSquareException {
         if (!A.isSquare()) {
@@ -182,7 +182,7 @@ public class Matrix {
 		Matrix.add(sampleMatrix, sampleMatrix2, resultMatrix);
 		resultMatrix.toString();
 		double[] thisrow = {2,4,6};
-		sampleMatrix3.setRow(thisrow, 0);
+		sampleMatrix3.setRow(thisRow, 1);
 		sampleMatrix3.setElem(1,0,2);
 		sampleMatrix3.setElem(2,0,2);
 		try {

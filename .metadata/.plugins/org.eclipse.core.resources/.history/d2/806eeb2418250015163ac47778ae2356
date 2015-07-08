@@ -115,15 +115,6 @@ public class MatrixTest {
 	}
 	
 	@Test
-	public void testFlipOddEven() {
-		assert(Matrix.flipOdd(2) == 1);
-	}
-	
-	public void testFlipOddOdd() {
-		assert(Matrix.flipOdd(3) == -1);
-	}
-	
-	@Test
 	public void testGetNumColumns() {
 		Matrix newMat = new Matrix(7,3,true,0);
 		assertEquals(newMat.getNumColumns(),3);

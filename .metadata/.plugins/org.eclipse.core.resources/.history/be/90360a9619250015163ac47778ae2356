@@ -101,40 +101,22 @@ public class Matrix {
 			return true;
 		}
 	}
-	   //To do - this is copied from an example, we probably want to do our own
-	public static double determinant(Matrix A) throws Exception {
+	   //To do
+	public false determinant(Double detResult) {
 		//public static double determinant(Matrix matrix) throws NoSquareException {
-        if (!A.isSquare()) {
-        	throw new Exception("Need square matrix."); //todo define matrix exception
-        }
-		if (A.getNumRows() == 1) {
-			return A.getElem(0,0);
+        if (!isSquare()) return false;
+		if (getNumRows() == 1) {
+			return matrix[0][0];
 		}
-		if (A.getNumRows()==2) {
-		    return (A.getElem(0, 0) * A.getElem(1, 1)) - ( A.getElem(0, 1) * A.getElem(1, 0));
+		if (getNumRows()==2) {
+		    return (matrix.getValueAt(0, 0) * matrix.getValueAt(1, 1)) - ( matrix.getValueAt(0, 1) * matrix.getValueAt(1, 0));
 		}
 		double sum = 0.0;
-		for (int i=0; i<A.getNumColumns(); i++) {
-		    sum += flipOdd(i) * A.getElem(0, i) * determinant(Matrix.createSubMatrix(A, 0, i));
+		for (int i=0; i<getNumColumns(); i++) {
+		    sum += changeSign(i) * matrix.getValueAt(0, i) * determinant(createSubMatrix(matrix, 0, i));
 		}
-		return sum;
-	}
-	
-	public static Matrix createSubMatrix(Matrix a, int x, int y) {
-	    Matrix mat = new Matrix(a.getNumRows()-1, a.getNumColumns()-1,true,0);
-	    int r = -1;
-	    for (int i=0;i<a.getNumRows();i++) {
-	        if (i==x)
-	            continue;
-	            r++;
-	            int c = -1;
-	        for (int j=0;j<a.getNumColumns();j++) {
-	            if (j==y)
-	                continue;
-	            mat.setElem(r, ++c, a.getElem(i, j));
-	        }
-	    }
-	    return mat;
+		detResult = sum;
+		return true;
 	}
 	   //Todo
 	public Matrix cofactor() {
@@ -168,30 +150,18 @@ public class Matrix {
 			}
 			sb.append("\n");
 		}
-		//System.out.println(sb.toString());
+		System.out.println(sb.toString());
 		return sb.toString();
 	}
 	
 	public static void main(String[] args) {
 		Matrix sampleMatrix = new Matrix(2,4,false,10);
 		Matrix sampleMatrix2 = new Matrix(2,3,false,5);
-		Matrix sampleMatrix3 = new Matrix(3,3,false,5);
 		Matrix resultMatrix = new Matrix(2,4,true,0);
 		sampleMatrix.toString();
 		sampleMatrix2.toString();
 		Matrix.add(sampleMatrix, sampleMatrix2, resultMatrix);
 		resultMatrix.toString();
-		double[] thisrow = {2,4,6};
-		sampleMatrix3.setRow(thisrow, 0);
-		sampleMatrix3.setElem(1,0,2);
-		sampleMatrix3.setElem(2,0,2);
-		try {
-		    double det = Matrix.determinant(sampleMatrix3);
-		    System.out.println("The determinant of: " + sampleMatrix3.toString()
-		    		+ " is: " + det);
-		} catch(Exception e) {
-			System.out.println(e.toString());
-		}
 		System.out.println("Created matrix.");
 	}
 }
