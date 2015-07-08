@@ -66,7 +66,7 @@ public class MatrixTest {
 	
 	@Test
 	public void testToString() {
-		String expected = "0.0 0.0 0.0 0.0 \n0.0 1.0 2.0 3.0 \n0.0 2.0 4.0 6.0 \n0.0 3.0 6.0 9.0 \n";
+		String expected = "0.0 0.0 0.0 0 \n0.0 1.0 2.0 3.0 \n0.0 2.0 4.0 6.0 \n0.0 3.0 6.0 9.0 \n";
 		assertEquals(testMatrix.toString(), expected);
 	}
 	
@@ -87,7 +87,7 @@ public class MatrixTest {
 				thisMatrix.setElem(i, j, ((i*j)%10));
 			}
 		}
-		String expected = "0.0 0.0 0.0 0.0 \n0.0 1.0 2.0 3.0 \n0.0 2.0 4.0 6.0 \n0.0 3.0 6.0 9.0 \n";
+		String expected = "0.0 0.0 0.0 0 \n0.0 1.0 2.0 3.0 \n0.0 2.0 4.0 6.0 \n0.0 3.0 6.0 9.0 \n";
 		assertEquals(expected,thisMatrix.toString());
 	}
 	

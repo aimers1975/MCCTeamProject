@@ -52,7 +52,7 @@ public class MatrixTest {
 	public void testAdd() {
 		Matrix matrixResult = new Matrix(4,4,true,0);
 	    Matrix.add(testMatrix, testMatrix2, matrixResult);
-	    String expected = "0.0 0.0 0.0 0.0 \n0.0 2.0 4.0 6.0 \n0.0 4.0 8.0 7.0 \n0.0 6.0 7.0 13.0 \n";
+	    String expected = "0 0 0 0 \n0 2 4 6 \n0 4 8 7 \n0 6 7 13 \n";
 	    assertEquals(matrixResult.toString(),expected);
 	}
 	
@@ -60,13 +60,13 @@ public class MatrixTest {
 	public void testMultiply() {
 		Matrix matrixResult = new Matrix(4,4,true,0);
 		Matrix.multiply(testMatrix, testMatrix2, matrixResult);
-		String expected = "0.0 0.0 0.0 0.0 \n0.0 14.0 13.0 17.0 \n0.0 28.0 26.0 34.0 \n0.0 42.0 39.0 51.0 \n";
+		String expected = "0 0 0 0 \n0 14 13 17 \n0 28 26 34 \n0 42 39 51 \n";
 		assertEquals(matrixResult.toString(),expected);
 	}
 	
 	@Test
 	public void testToString() {
-		String expected = "0.0 0.0 0.0 0.0 \n0.0 1.0 2.0 3.0 \n0.0 2.0 4.0 6.0 \n0.0 3.0 6.0 9.0 \n";
+		String expected = "0 0 0 0 \n0 1 2 3 \n0 2 4 6 \n0 3 6 9 \n";
 		assertEquals(testMatrix.toString(), expected);
 	}
 	
@@ -75,7 +75,7 @@ public class MatrixTest {
 		Matrix replaceRow = new Matrix(4,4,false,10);
 		double[] row = {5,5,5,5};
 		replaceRow.setRow(row, 3);
-		String expected = "0.0 0.0 0.0 0.0 \n0.0 1.0 2.0 3.0 \n0.0 2.0 4.0 6.0 \n5.0 5.0 5.0 5.0 \n";
+		String expected = "0 0 0 0 \n0 1 2 3 \n0 2 4 6 \n5 5 5 5 \n";
 		assertEquals(expected,replaceRow.toString());
 		
 	}
@@ -87,13 +87,13 @@ public class MatrixTest {
 				thisMatrix.setElem(i, j, ((i*j)%10));
 			}
 		}
-		String expected = "0.0 0.0 0.0 0.0 \n0.0 1.0 2.0 3.0 \n0.0 2.0 4.0 6.0 \n0.0 3.0 6.0 9.0 \n";
+		String expected = "0 0 0 0 \n0 1 2 3 \n0 2 4 6 \n0 3 6 9 \n";
 		assertEquals(expected,thisMatrix.toString());
 	}
 	
 	@Test
 	public void testGetElem() {
-		assert(testMatrix.getElem(2, 2)== 4);
+		assertEquals(testMatrix.getElem(2, 2),4);
 	}
 	
 	@Test

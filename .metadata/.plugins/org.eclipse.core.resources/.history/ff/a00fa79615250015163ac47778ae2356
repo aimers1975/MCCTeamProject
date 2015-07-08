@@ -4,10 +4,10 @@ import java.lang.StringBuilder;
 
 public class Matrix {
 	
-	double[][] matrix;
+	int[][] matrix;
 
 	public Matrix(int rows, int columns, boolean zerod, int max) {
-		matrix = new double[rows][columns];
+		matrix = new int[rows][columns];
 		for (int row=0; row<rows; row++) {
 			for (int column=0; column < columns; column++) {
 				if(zerod) {
@@ -19,7 +19,7 @@ public class Matrix {
 		}		
 	}
 	
-	public boolean setRow(double[] inputRow, int rowID) {
+	public boolean setRow(int[] inputRow, int rowID) {
 		if(inputRow.length == matrix[0].length && rowID < matrix.length) {
 		    matrix[rowID] = inputRow;
 		    return true;
@@ -28,11 +28,11 @@ public class Matrix {
 		}
 	}
 	
-	public double getElem(int i, int j) {
+	public int getElem(int i, int j) {
 		return matrix[i][j];
 	}
 
-	public boolean setElem(int i, int j, double value) {
+	public boolean setElem(int i, int j, int value) {
 		if(i < getNumRows() && j < getNumColumns()) {
 			matrix[i][j] = value;
 			return true;
@@ -41,14 +41,14 @@ public class Matrix {
 		}
 	}
 	
-	public double[] getRow(int row) {
+	public int[] getRow(int row) {
 		if(row < getNumRows()) 
 		    return matrix[row];
 		else
-			return new double[0]; // need to fix this
+			return new int[0]; // need to fix this
 	}
 
-	public double[] getColumn(int col) {
+	public int[] getColumn(int col) {
 		return matrix[col];
 	}
 	
@@ -91,7 +91,7 @@ public class Matrix {
 			
 			for(int i=0; i<matrixA.getNumRows(); i++) {
 				for(int j=0; j<matrixB.getNumColumns(); j++) {
-					double value = 0;
+					int value = 0;
 					for(int inner=0; inner < matrixA.getNumColumns();inner++) {
 						value = value + (matrixA.getElem(i, inner) * matrixB.getElem(inner, j));
 					}
@@ -100,23 +100,6 @@ public class Matrix {
 			}
 			return true;
 		}
-	}
-	   //To do
-	public double determinant() {
-		return 0;
-	}
-	   //Todo
-	public Matrix cofactor() {
-        return new Matrix(1,1,true,0);
-	}
-	   //Todo
-	public Matrix invert() {
-		return new Matrix(1,1,true,0);
-	}
-	
-	public static boolean solveLinearSystem(Matrix A, Matrix X, Matrix B) {
-		// AX=B, so A^-1B = X...Take the inverse of A and solve for X
-		return true;
 	}
 	
 	public String toString() {
