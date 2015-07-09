@@ -100,10 +100,14 @@ public class Matrix {
 				(matrixResult.getNumColumns() != matrixB.getNumColumns()))
 			return false;
 		for(int i=0; i<matrixA.getNumRows(); i++) {
+		    System.out.println("RowsA: " + matrixA.getNumRows() + " " + i);
 			for(int j=0; j<matrixB.getNumColumns(); j++) {
+			    System.out.println("ColB: " + matrixA.getNumRows() + " " + i + " " + j);
 			    double value = 0;
 			    for(int inner=0; inner < matrixA.getNumColumns();inner++) {
+				    System.out.println("ColA: " + matrixA.getNumColumns() + " " + i + " " + j + " inner " + inner);
 				    value = value + (matrixA.getElem(i, inner) * matrixB.getElem(inner, j));
+				    System.out.println("Calculating value:" + matrixA.getElem(i, inner) + " * " + matrixB.getElem(inner, j));
 				}
 				matrixResult.setElem(i, j, value);
 			}
@@ -128,6 +132,7 @@ public class Matrix {
 		for (int i=0; i<A.getNumColumns(); i++) {
 		    sum += flipOdd(i) * A.getElem(0, i) * determinant(Matrix.createSubMatrix(A, 0, i));
 		}
+		System.out.println("The determinant is: " + sum);
 		return sum;
 	}
 	

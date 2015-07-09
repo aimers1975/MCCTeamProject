@@ -128,6 +128,7 @@ public class Matrix {
 		for (int i=0; i<A.getNumColumns(); i++) {
 		    sum += flipOdd(i) * A.getElem(0, i) * determinant(Matrix.createSubMatrix(A, 0, i));
 		}
+		System.out.println("The determinant is: " + sum);
 		return sum;
 	}
 	

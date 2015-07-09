@@ -1017,3 +1017,6 @@ org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
 	at org.eclipse.wst.server.core.ServerCore.getServers(ServerCore.java:316)
 	at org.eclipse.wst.server.ui.internal.InitializeJob.run(InitializeJob.java:34)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.ui 4 4 2015-07-08 20:48:44.741
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.
